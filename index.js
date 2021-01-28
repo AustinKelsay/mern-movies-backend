@@ -2,6 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const dotenv = require('dotenv')
+dotenv.config()
 
 const db = require('./db')
 const movieRouter = require('./routes/movie-router')
@@ -12,7 +13,6 @@ const apiPort = process.env.PORT || 3000
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use(bodyParser.json())
-dotenv.config()
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
